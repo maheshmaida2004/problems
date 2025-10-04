@@ -1,14 +1,20 @@
-var reverse = function (number) {
-  let min = Number.MIN_VALUE;
-  let num = Math.abs(number);
+var reverse = function (num) {
+  let isNegative = num < 0;
+  num = Math.abs(num);
   let reverseDigit = 0;
-  while (num > min) {
+
+  while (num > 0) {
     const digit = num % 10;
     reverseDigit = reverseDigit * 10 + digit;
-
-    num = Math.floor(num / 10);
+    num = Math.trunc(num / 10);
   }
-  return reverseDigit;
+
+  if (isNegative) {
+    return -reverseDigit;
+  } else {
+    return reverseDigit;
+  }
 };
-let result = reverse(-3456);
-console.log(result);
+
+console.log(reverse(-3456));
+console.log(reverse(7890));
