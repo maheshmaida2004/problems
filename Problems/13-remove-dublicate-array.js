@@ -1,11 +1,13 @@
-function remove(arr) {
-  let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== arr[i + 1]) {
-      count++;
-    }
+let arr = [1, 1, 2];
+let i = 0;
+let j = 0;
+let k = 1;
+while (i < arr.length) {
+  if (arr[i] !== arr[j]) {
+    arr[j + 1] = arr[i];
+    k++;
+    j++;
   }
-  return count;
+  i++;
 }
-let res = remove([1, 1, 2]);
-console.log(res);
+return k;
